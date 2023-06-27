@@ -12,6 +12,9 @@ buildscript {
     }
 }
 
+
+apply plugin: 'com.android.application'
+
 allprojects {
     repositories {
         google()
@@ -27,6 +30,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-tasks.register("clean", Delete) {
+tasks.register("clean-app", Delete) {
     delete rootProject.buildDir
 }

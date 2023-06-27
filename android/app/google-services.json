@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "546695525244",
-    "project_id": "flash-chat-98837",
-    "storage_bucket": "flash-chat-98837.appspot.com"
+    "project_number": "963308112590",
+    "project_id": "chat-app-4cd41",
+    "storage_bucket": "chat-app-4cd41.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:546695525244:android:1c0ad6e56a68db91c92af9",
+        "mobilesdk_app_id": "1:963308112590:android:d5b7ea8c0299565b309e9f",
         "android_client_info": {
-          "package_name": "com.Nithin.chat_app"
+          "package_name": "com.example.chat_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "546695525244-o5fgh0bt9301mdsurnr07d1i55n9vq0r.apps.googleusercontent.com",
+          "client_id": "963308112590-panq23qoj16hr6o3atnbip88nklfb0e2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCbKM14KlA-1IKig-r-AMuhDSjMAGyjHL4"
+          "current_key": "AIzaSyA2kHaXdrL7wCbnMyxlX-eLYoKOHE3Fn58"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "546695525244-o5fgh0bt9301mdsurnr07d1i55n9vq0r.apps.googleusercontent.com",
+              "client_id": "963308112590-panq23qoj16hr6o3atnbip88nklfb0e2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

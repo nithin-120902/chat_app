@@ -87,7 +87,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               title: "Log In",
               color: Colors.lightBlueAccent,
               onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.id);
+                Navigator.popAndPushNamed(context, LoginScreen.id);
               },
             ),
             SizedBox(height: 20.0),
@@ -95,7 +95,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               title: "Register",
               color: Colors.blueAccent,
               onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
+                Navigator.popAndPushNamed(context, RegistrationScreen.id);
               },
             )
           ],

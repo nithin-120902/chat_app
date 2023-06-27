@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, await_only_futures, prefer_typing_uninitialized_variables
 
+import 'package:chat_app/screens/welcomescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,19 +14,39 @@ class _ChatScreenState extends State<ChatScreen> {
 
   final _auth = FirebaseAuth.instance;
 
-  void getCurrentUser() async{
-    final user = await _auth.currentUser;
+  var loggedInUser;
+
+  late String message;
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
   }
+
+  void getCurrentUser() async {
+    final user = await _auth.currentUser;
+    try {
+      if (user != null) {
+        loggedInUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: null,
         actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.close),
+          ElevatedButton(
+              child: Text("Logout"),
               onPressed: () {
-                //Implement logout functionality
+                _auth.signOut();
+                Navigator.popAndPushNamed(context, WelcomeScreen.id);
               }),
         ],
         title: Text('⚡️Chat'),
@@ -33,7 +54,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -46,26 +67,26 @@ class _ChatScreenState extends State<ChatScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
-                    child: TextField(
-                      onChanged: (value) {
-                        //Do something with the user input.
-                      },
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        hintText: 'Type your message here...',
-                        border: InputBorder.none,
+                    child: SingleChildScrollView(
+                      child: TextField(
+                        onChanged: (value) {
+                          message = value;
+                        },
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
+                          hintText: 'Type your message here...',
+                          border: InputBorder.none,
+                        ),
                       ),
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      //Implement send functionality.
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Send',
                       style: TextStyle(
-                        color: Colors.lightBlueAccent,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),

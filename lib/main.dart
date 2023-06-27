@@ -4,15 +4,17 @@ import 'package:chat_app/screens/chatscreen.dart';
 import 'package:chat_app/screens/loginscreen.dart';
 import 'package:chat_app/screens/registrationscreen.dart';
 import 'package:chat_app/screens/welcomescreen.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:chat_app/firebase_options.dart';
+import 'package:flutter/material.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() async{
+
   await Firebase.initializeApp(
-    options: firebaseOptions
-  );
+      options: FirebaseOptions(
+          apiKey: 'AIzaSyA2kHaXdrL7wCbnMyxlX-eLYoKOHE3Fn58',
+          appId: '1:963308112590:android:d5b7ea8c0299565b309e9f',
+          messagingSenderId: '963308112590',
+          projectId: 'chat-app-4cd41'));
   return runApp(MyApp());
 }
 
